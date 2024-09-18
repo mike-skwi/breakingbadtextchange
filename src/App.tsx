@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [firstString, setFirstString] = useState("Breaking");
+  const [secondString, setSecondString] = useState("Bad");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='container'>
+        <h1>{firstString}</h1>
+        <h1>{secondString}</h1>
+        <div className='input-row'>
+          <div className='column'>
+            <label>First:</label>
+            <input type='text' title='First:' onChange={e => setFirstString(e.target.value)} />
+          </div>
+          <div className='column'>
+            <label>Last:</label>
+            <input type='text' title='Second:' onChange={e => setSecondString(e.target.value)} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
